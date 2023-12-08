@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function(){
     // ウィンドウがアクティブ時に実行させる関数
     function play() {
       intervId = setInterval(function() {
-        // console.log(Date.now());
         // 変数startTimeの時刻から一定時刻後の場合
         if (Date.now() > (startTime + (30 * 60 * 1000))) {  
           // データ更新
@@ -201,14 +200,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // 照明のリモコンを送信する関数
     function lightSend(buttonName){
-        `const light = sessionStorage.getItem();
-        console.log(light)
-        const appliance = JSON.parse(light);`
-        
         const params = new URLSearchParams({
           'button': buttonName
         }); 
-    
+        
+        //idがsessionStorage.getItem(light)で取れなかったため、IDを直で書いています。
         const url = 'https://api.nature.global/1/appliances/' + '19e214d3-3d0c-4028-a8b0-39cb951d566f' + '/light';
         postSend(url, params);
       }
@@ -218,17 +214,13 @@ document.addEventListener('DOMContentLoaded', function(){
       const ir = sessionStorage.getItem('ir');
       const signals = JSON.parse(ir);
 
-      console.log("sig",signals);
-  
       function signalGet(item) {
         if (item.name == value) {
           return true;
         } 
       }
       const signal = signals.filter(signalGet);
-      console.log("signal:",signal);
       const signalID = signal[0]['id'];
-  
       const url = 'https://api.nature.global/1/signals/' + signalID + '/send';
       postSend(url);
     }
@@ -264,7 +256,6 @@ document.addEventListener('DOMContentLoaded', function(){
     for(let i = 0; i < lightButton.length; i++) {
       lightButton[i].addEventListener('click', function(){
         const lightValue = lightButton[i].value;
-        console.log(lightValue);
         lightSend(lightValue);
       });
     }
@@ -274,7 +265,6 @@ document.addEventListener('DOMContentLoaded', function(){
     for(let i = 0; i < irButton.length; i++) {
       irButton[i].addEventListener('click', function(){
         const irValue = irButton[i].value;
-        console.log(irValue,"aaaa");
         irSend(irValue);
       });
     }
