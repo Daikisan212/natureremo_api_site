@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <title>部屋のリモコン</title>
+</head>
+<body>
+    <h1>部屋のリモコン</h1>
+        <div>
+        <!-- 部屋の照明　-->
+        <section class="light">
+          <h1>Light</h1>
+      
+          <div class="col_2">
+            <div><button type="button" name="light" value="on">ON</button></div>
+            <div><button type="button" name="light" value="Favorite">OFF</button></div>
+          </div>
+        </section> 
+      
+        <!-- エアコン　-->
+        <section class="aircon">
+          <h1>Air-Conditioner</h1>
+      
+          <div class="ac_now col_2">
+            <div>
+              <p>現在の気温</p>
+              <p id="now_temp">未取得</p>
+            </div>
+            <div id="now_ope">
+              <p id="now_onoff">運転状況</p>
+            </div>
+          </div>
+      
+          <div class="ac_onoff col_2">
+            <div><button class="ac" type="button" name="ac_onoff" value="">ON</button></div>
+            <div><button class="ac" type="button" name="ac_onoff" value="power-off">OFF</button></div>
+          </div>
+        
+          <div class="col_3">
+            <div class="select_box">
+              <select id="mode_select" class="ac" size="1">
+                <option value="warm">暖房</option>
+                <option value="cool">冷房</option>
+                <option value="dry">DRY</option>
+              </select>
+            </div>
+      
+            <div class="select_box">
+              <select id="temp_select" class="ac" size="1">
+                <option value="30">32°</option>
+                <option value="30">31°</option>
+                <option value="30">30°</option>
+                <option value="29">29°</option>
+                <option value="28">28°</option>
+                <option value="27">27°</option>
+                <option value="26">26°</option>
+                <option value="25">25°</option>
+                <option value="24">24°</option>
+                <option value="23">23°</option>
+                <option value="22">22°</option>
+                <option value="21">21°</option>
+                <option value="20">20°</option>
+                <option value="20">19°</option>
+                <option value="20">18°</option>
+              </select>
+            </div>
+      
+            <div class="select_box">
+              <select id="vol_select" class="ac" size="1">
+                <option value="auto">AUTO</option>
+                <option value="4">最強</option>
+                <option value="3">強</option>
+                <option value="2">中</option>
+                <option value="1">弱</option>
+              </select> 
+            </div>
+
+            <div class="select_box">
+                <select id="vol_dir" class="ac" size="1">
+                  <option value="1">1(上端)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4(下端)</option>
+                  <option value="auto">オート</option>
+                  <option value="swing">スイング</option>
+                </select> 
+              </div>
+          </div>
+        </section>
+      </div>
+</body>
+</html>
